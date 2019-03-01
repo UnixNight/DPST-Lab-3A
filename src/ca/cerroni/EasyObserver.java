@@ -14,6 +14,8 @@ public class EasyObserver implements Observer {
         this.max = maxBid;
         this.increment = increment;
         this.bidderName = bidderName;
+
+        auction.register(this);
     }
 
     @Override
