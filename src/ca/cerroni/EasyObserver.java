@@ -7,6 +7,10 @@ public class EasyObserver implements Observer {
     private double increment;
     private String bidderName;
 
+    private static int observerIDTracker = 0;
+    private int observerID;
+
+
     private double auctionBid;
 
     public EasyObserver(Auction auction, double maxBid, double increment, String bidderName){
@@ -14,6 +18,7 @@ public class EasyObserver implements Observer {
         this.max = maxBid;
         this.increment = increment;
         this.bidderName = bidderName;
+        this.observerID = ++observerIDTracker;
 
         auction.register(this);
     }
@@ -23,6 +28,9 @@ public class EasyObserver implements Observer {
         this.auctionBid = bid;
         if (auctionBid < max){
             auction.bid(this, auctionBid + increment);
+        }
+        if (this.observerID != observerID){
+            System.out.println("test");
         }
 
     }
@@ -57,6 +65,11 @@ public class EasyObserver implements Observer {
 
     public void setBidderName(String bidderName) {
         this.bidderName = bidderName;
+    }
+
+
+    public int getObserverID() {
+        return observerID;
     }
 
 

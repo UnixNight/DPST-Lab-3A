@@ -12,6 +12,8 @@ public class Auction implements Subject {
 
     public Auction(String item){
         this.item = item;
+
+        observers = new ArrayList<Observer>();
     }
 
     public void bid(Observer o, double bid){
