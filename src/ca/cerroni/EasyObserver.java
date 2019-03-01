@@ -28,9 +28,7 @@ public class EasyObserver implements Observer {
         this.auctionBid = bid;
         if (auctionBid < max){
             auction.bid(this, auctionBid + increment);
-        }
-        if (this.observerID != observerID){
-            System.out.println("test");
+            System.out.println(getBidderName() + " bid " + (auctionBid + increment));
         }
 
     }
