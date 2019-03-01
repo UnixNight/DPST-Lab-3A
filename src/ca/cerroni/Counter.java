@@ -1,15 +1,15 @@
 package ca.cerroni;
 
-public class Counter {
+public class Counter implements Observer{
 
     private Auction auction;
-    private String BidderName;
+    private String Name;
     private double currentBid;
 
 
-    public Counter(Auction auction, String BidderName){
+    public Counter(Auction auction, String Name){
         this.auction = auction;
-        this.BidderName = BidderName;
+        this.Name = Name;
     }
 
     public Auction getAuction() {
@@ -20,12 +20,12 @@ public class Counter {
         this.auction = auction;
     }
 
-    public String getBidderName() {
-        return BidderName;
+    public String getName() {
+        return Name;
     }
 
-    public void setBidderName(String bidderName) {
-        BidderName = bidderName;
+    public void setName(String name) {
+        Name = name;
     }
 
     public double getCurrentBid() {
@@ -34,5 +34,10 @@ public class Counter {
 
     public void setCurrentBid(double currentBid) {
         this.currentBid = currentBid;
+    }
+
+    @Override
+    public void update(double o) {
+
     }
 }

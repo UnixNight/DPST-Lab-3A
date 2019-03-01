@@ -16,9 +16,10 @@ public class Auction implements Subject {
 
     public void bid(Observer o, double bid){
         setCurrentBid(bid);
+        setCurrentBidder(o);
+        notifyObserver();
+
     }
-
-
 
     @Override
     public void register(Observer o) {
@@ -33,7 +34,7 @@ public class Auction implements Subject {
     @Override
     public void notifyObserver() {
         for(Observer observer: observers){
-            observer.update();
+            observer.update(currentBid);
         }
     }
 
