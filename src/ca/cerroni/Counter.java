@@ -1,13 +1,13 @@
 package ca.cerroni;
 
-public class Counter implements Observer{
+public class Counter implements Observer {
 
     private Auction auction;
     private String Name;
     private double currentBid;
 
 
-    public Counter(Auction auction, String Name){
+    public Counter(Auction auction, String Name) {
         this.auction = auction;
         this.Name = Name;
     }

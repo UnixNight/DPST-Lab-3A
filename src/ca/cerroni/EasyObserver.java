@@ -13,7 +13,7 @@ public class EasyObserver implements Observer {
 
     private double auctionBid;
 
-    public EasyObserver(Auction auction, double maxBid, double increment, String bidderName){
+    public EasyObserver(Auction auction, double maxBid, double increment, String bidderName) {
         this.auction = auction;
         this.max = maxBid;
         this.increment = increment;
@@ -26,7 +26,7 @@ public class EasyObserver implements Observer {
     @Override
     public void update(double bid) {
         this.auctionBid = bid;
-        if (auctionBid < max){
+        if (auctionBid < max) {
             auction.bid(this, auctionBid + increment);
             System.out.println(getBidderName() + " bid " + (auctionBid + increment));
         }
@@ -69,9 +69,6 @@ public class EasyObserver implements Observer {
     public int getObserverID() {
         return observerID;
     }
-
-
-
 
 
 }

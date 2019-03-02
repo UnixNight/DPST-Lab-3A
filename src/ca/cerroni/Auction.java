@@ -10,13 +10,13 @@ public class Auction implements Subject {
     private Observer currentBidder;
 
 
-    public Auction(String item){
+    public Auction(String item) {
         this.item = item;
 
         observers = new ArrayList<Observer>();
     }
 
-    public void bid(Observer o, double bid){
+    public void bid(Observer o, double bid) {
         setCurrentBid(bid);
         setCurrentBidder(o);
         notifyObserver();
@@ -35,7 +35,7 @@ public class Auction implements Subject {
 
     @Override
     public void notifyObserver() {
-        for(Observer observer: observers){
+        for (Observer observer : observers) {
             observer.update(currentBid);
         }
     }
