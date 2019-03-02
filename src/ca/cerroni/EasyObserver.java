@@ -28,46 +28,26 @@ public class EasyObserver implements Observer {
         this.auctionBid = bid;
         if (auctionBid < max) {
             auction.bid(this, auctionBid + increment);
-            System.out.println(getBidderName() + " bid " + (auctionBid + increment));
+            print();
+        }
+    }
+
+    public void print() {
+
+        String name = auction.getCurrentBidderName();
+
+        System.out.println("Bider: " + name + "; Bid Value: " + auction.getCurrentBid());
+
+
+        if (this.bidderName != name) {
+            System.out.println(name + "notified, current bid:" + auction.getCurrentBid());
         }
 
     }
 
-    public Auction getAuction() {
-        return auction;
-    }
-
-    public void setAuction(Auction auction) {
-        this.auction = auction;
-    }
-
-    public double getMax() {
-        return max;
-    }
-
-    public void setMax(double max) {
-        this.max = max;
-    }
-
-    public double getIncrement() {
-        return increment;
-    }
-
-    public void setIncrement(double increment) {
-        this.increment = increment;
-    }
 
     public String getBidderName() {
         return bidderName;
-    }
-
-    public void setBidderName(String bidderName) {
-        this.bidderName = bidderName;
-    }
-
-
-    public int getObserverID() {
-        return observerID;
     }
 
 

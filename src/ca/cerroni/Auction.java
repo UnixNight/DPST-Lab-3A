@@ -8,19 +8,22 @@ public class Auction implements Subject {
     private String item;
     private double currentBid;
     private Observer currentBidder;
+    private String currentBidderName;
 
 
     public Auction(String item) {
         this.item = item;
 
-        observers = new ArrayList<Observer>();
+        observers = new ArrayList<>();
     }
 
     public void bid(Observer o, double bid) {
-        setCurrentBid(bid);
-        setCurrentBidder(o);
-        notifyObserver();
 
+        EasyObserver foo = (EasyObserver) o;
+
+        setCurrentBid(bid);
+        setCurrentBidderName(foo.getBidderName());
+        notifyObserver();
     }
 
     @Override
@@ -40,13 +43,6 @@ public class Auction implements Subject {
         }
     }
 
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
 
     public double getCurrentBid() {
         return currentBid;
@@ -56,7 +52,12 @@ public class Auction implements Subject {
         this.currentBid = currentBid;
     }
 
-    public void setCurrentBidder(Observer currentBidder) {
-        this.currentBidder = currentBidder;
+
+    public String getCurrentBidderName() {
+        return currentBidderName;
+    }
+
+    public void setCurrentBidderName(String currentBidderName) {
+        this.currentBidderName = currentBidderName;
     }
 }
